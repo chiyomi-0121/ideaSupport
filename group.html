@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/style.css">
+        <title>グループワーク</title>
+        <script type="text/javascript">
+            var timer_ID;
+            var time = 600;
+
+            function minusTime(){
+                time--;
+                dispTime();
+                if(time == 0){
+                    clearInterval(timer_ID);
+                }
+            }
+
+            function dispTime(){
+                min = Math.floor(time/60);
+                sec = time % 60;
+                document.getElementById("min").innerHTML = min;
+                document.getElementById("sec").innerHTML = sec;
+            }
+
+            window.onload = function(){
+                dispTime();
+                timer_ID = setInterval("minusTime()", 1000);
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h2 class="theme">課題テーマ：新しい文房具</h2>
+            <h2 class="timer">残り時間 
+                <span id="min"></span>分
+                <span id="sec"></span>秒
+            </h2>
+        </header>
+    </body>
+</html>
